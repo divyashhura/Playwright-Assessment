@@ -9,8 +9,8 @@ test.describe('Login Tests', () => {
       await page.fill('input[type="text"]', userCredentials.username);
       await page.fill('input[type="password"]', userCredentials.password)
       await page.click('button:has-text("Sign in to Qventus")')
-      const errorMessage = await page.waitForSelector('.error-message')
+      const errorMessage = await page.waitForSelector('p[style="color: red;"]')
       const errorText = await errorMessage.innerText()
-      expect(errorText).toContain('Invalid username or password')
+      expect(errorText).toContain('Invalid username and/or password!')
     })
   })
